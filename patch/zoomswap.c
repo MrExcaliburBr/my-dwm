@@ -1,7 +1,4 @@
 
-#if !PERTAG_PATCH
-static Client *prevzoom = NULL;
-#endif // PERTAG_PATCH
 
 Client *
 prevtiled(Client *c) {
