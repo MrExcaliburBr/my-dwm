@@ -68,6 +68,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 4)
 	RULE(.class = "Firefox", .tags = 1 << 7)
+	RULE(.class = "mpv", .isfloating = 1)
 };
 
 
@@ -135,7 +136,6 @@ static const char *dmenucmd[] = {
 };
 static const char *termcmd[]  = { "st", NULL };
 
-
 static Key keys[] = {
 	/* modifier                     key            function                argument */
 	{ MODKEY,                       XK_d,          spawn,                  {.v = dmenucmd } },
@@ -153,6 +153,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
 	{ MODKEY|ShiftMask,             XK_q,          killclient,             {0} },
 	{ MODKEY|ShiftMask,             XK_c,          quit,                   {0} },
+	{ MODKEY|ShiftMask,             XK_space,      unfloatvisible,	       {0} },
 	{ MODKEY,                       XK_t,          unfloatvisible,         {.v = &layouts[0]} },
 	{ MODKEY,                       XK_y,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY,                       XK_u,          setlayout,              {.v = &layouts[2]} },
@@ -162,6 +163,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
+	{ MODKEY,			XK_minus,          togglegaps,             {0} },
 	{ MODKEY,                       XK_a,	       explace,                {.ui = EX_E  }},   /* XK_KP_Right, */
 	{ MODKEY,                       XK_z,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
 
